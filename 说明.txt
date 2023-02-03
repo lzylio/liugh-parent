@@ -1,0 +1,11 @@
+【参考博客】
+https://www.cnblogs.com/lywJ/p/11252064.html
+
+【github地址】
+https://github.com/qq53182347/liugh-parent
+
+【启动】
+1、执行user-center下面的sql
+
+【备注】
+1、不要使用register-config-center，自己手动启动一个
