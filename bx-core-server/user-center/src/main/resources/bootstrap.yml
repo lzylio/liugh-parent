@@ -77,7 +77,7 @@ spring:
         server-addr: ${bx.nacos.server-addr}
 
 access_token:
-  store-jwt: false
+  store-jwt: true
   jwt-signing-key: liugh=$==+_+%0%:)(:)
 
 

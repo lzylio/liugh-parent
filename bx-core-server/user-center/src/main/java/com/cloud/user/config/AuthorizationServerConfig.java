@@ -49,7 +49,14 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private RedisAuthorizationCodeServices redisAuthorizationCodeServices;
     @Autowired
     private RedisClientDetailsService redisClientDetailsService;
-
+    @Autowired
+    public UserDetailsService userDetailsService;
+    /**
+     * jwt签名key，可随意指定<br>
+     * 如配置文件里不设置的话，冒号后面的是默认值
+     */
+    @Value("${access_token.jwt-signing-key:liugh}")
+    private String signingKey;
     /**
      * 令牌存储
      */
@@ -100,15 +107,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         clients.withClientDetails(redisClientDetailsService);
         redisClientDetailsService.loadAllClientToCache();
     }
-
-    @Autowired
-    public UserDetailsService userDetailsService;
-    /**
-     * jwt签名key，可随意指定<br>
-     * 如配置文件里不设置的话，冒号后面的是默认值
-     */
-    @Value("${access_token.jwt-signing-key:liugh}")
-    private String signingKey;
 
     /**
      * Jwt资源令牌转换器<br>
